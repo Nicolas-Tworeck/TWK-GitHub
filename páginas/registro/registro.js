@@ -90,6 +90,11 @@ function getErrorMessage(error) {
 
 }
 
+function login(){
+    window.location.href = "../../index.html";
+}
+
+
 const form = {
 
    
