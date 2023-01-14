@@ -30,7 +30,7 @@ function login() {
         form.email().value, form.password().value
     ).then(response => {
         hideLoading();
-        window.location.href = "páginas/home/home.html";
+        window.location.href = "home.html";
     }).catch(error => {
         hideLoading();
         alert(getErrorMessage(error));
