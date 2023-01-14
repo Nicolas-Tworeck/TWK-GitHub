@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristro TWK</title>
+</head>
+
+<body class="centralizar">
+    <form>
+        <h1>Registro</h1>
+
+        <div class="form-field">
+
+            <div><label>Email</label></div>
+
+            <input type="email" placeholder="seu@email.com" id="email" onChange="onChangeEmail()">
+
+            <div class="error" id="email-requerido">
+
+                Email é obrigatório
+
+            </div>
+
+            <div class="error" id="email-invalido">
+
+                Email inválido
+
+            </div>
+        </div>
+
+        <div class="form-field">
+
+            <div><label>Senha</label></div>
+
+            <input type="password" id="password" onChange="onChangePassword()" placeholder="Senha">
+
+            <div class="error" id="senha-requerida">
+
+                Senha é obrigatória
+
+            </div>
+
+            <div class="error" id="senha-length">
+
+                A senha precisa ter 6 ou mais caracteres
+
+            </div>
+
+        </div>
+
+        <div class="form-field">
+
+            <div><label>Confirmar senha</label></div>
+
+            <input type="password" name="confirmPassword" id="confirmPassword" onChange="onChangeConfirmPassword()" placeholder="Confirmar senha">
+
+            <div class="error" id="senha-match">
+
+                Senha e confirmar senha devem ser iguais
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <button type="button" class="solido" onclick="registro()" id="registro-button" disabled="true">
+
+                Registrar
+
+            </button>
+
+        </div>
+
+        <div>
+
+            <button type="button" class="limpo">Login</button>
+
+        </div>
+
+    </form>
+
+</body>
+
+<link rel="stylesheet" href="../../global.css">
+
+<link rel="stylesheet" href="registrar.css">
+
+<script src="registro.js"></script>
+
+<script src="../../validation.js"></script>
+
+<script src="../../loading.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+
+<script src="../../firebase.js"></script>
+
+</html>
