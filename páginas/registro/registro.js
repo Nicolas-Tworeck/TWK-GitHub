@@ -21,20 +21,13 @@ function onChangePassword() {
     form.numerosenha().style.display = password.length >= 6 ? "none" : "block";
 
 
-    toggleRigisterButtonDisable();
 
     validatePasswordsMath();
 }
 
 
 
-function onChangeConfirmPassword() {
 
-    validatePasswordsMath();
-
-    toggleRigisterButtonDisable();
-
-}
 
 
 
@@ -42,93 +35,64 @@ function validatePasswordsMath() {
 
     const password = form.password().value;
 
-    const confirmPassword = form.confirmPassword().value;
 
-    form.senhamath().style.display = password == confirmPassword ? "none" : "block";
+
 
 }
 
 
 
-function toggleRigisterButtonDisable() {
 
 
-    form.buttonreg().disabled = !isFormValid();
-}
+function registro() {
 
-
-
-function isFormValid() {
-
-    const email = form.email().value;
-
-    if (!email || !validateEmail(email)) {
-
-        return false;
-
-    }
-
-
-
-    const password = form.password().value;
-
-    if (!password || password.length < 6) {
-
-        return false;
-
-    }
-
-
-
-    const confirmPassword = form.confirmPassword().value;
-
-    if (password != confirmPassword) {
-
-        return false;
-
-    }
-
-
-    return true;
-}
-
-function registro(){
-    
     showLoading();
-    
+
     const email = form.email().value;
-    
+
     const password = form.password().value;
+
     
     firebase.auth().createUserWithEmailAndPassword(email, password
-    
-        ).then(()=> {
-    
-            hideLoading();
-    
-            window.location.href = "../../páginas/home/home.html";
 
-        }).catch(error => {
+    ).then(() => {
 
-            hideLoading();
+        hideLoading();
 
-            alert (getErrorMessage(error));
+        window.location.href = "../../páginas/home/home.html";
+    }).catch(error => {
 
-        })
+        hideLoading();
 
+        alert(getErrorMessage(error));
+
+    })
+    alert (getErrorMessage(error));
+}
+
+
+
+
+function getErrorMessage(error) {
+    if (error.code == "auth/email-already-in-use") {
+        return ("Esse usuário já existe");
     }
 
-function getErrorMessage(error){
-if (error.code =="auth/email-already-in-use"){
-    return ("Esse usuário já existe");
-}
-return error.message;
+    if (error.code == "auth/internal-error"){
+        return ("Informe sua senha");
+    }
+    if (error.code == "auth/invalid-email"){
+        return "Informe email";
+    }
+
+
+    return error.message;
 
 }
 
 const form = {
 
-    confirmPassword: () => document.getElementById('confirmPassword'),
+   
 
     senhamath: () => document.getElementById('senha-match'),
 
