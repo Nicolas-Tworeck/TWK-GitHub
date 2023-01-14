@@ -54,13 +54,6 @@ function registrar() {
 
 
 
-function toggleButtonsDisable() {
-    const emailValid = isEmailValid();
-    form.recuperarsenha().disabled = !emailValid;
-
-    const passwordValid = isPasswordValid();
-    form.buttonlog().disabled = !emailValid || !passwordValid;
-}
 
 function toggleEmailErrors() {
     const email = form.email().value;
