@@ -59,7 +59,7 @@ function registro() {
 
         hideLoading();
 
-        window.location.href = "../../páginas/home/home.html";
+        window.location.href = "../../home.html";
     }).catch(error => {
 
         hideLoading();

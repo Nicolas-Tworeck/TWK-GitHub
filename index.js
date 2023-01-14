@@ -43,6 +43,9 @@ function login() {
         if (error.code == "auth/wrong-password") {
             return "Senha inválida";
         }
+        if (error.code == "auth/invalid-email"){
+            return "Informe seu email";
+        }
         return error.message;
     }
 }
