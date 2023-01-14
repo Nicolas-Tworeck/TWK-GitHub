@@ -43,6 +43,12 @@ function login() {
         if (error.code == "auth/wrong-password") {
             return "Senha inválida";
         }
+        if (error.code == "auth/invalid-email"){
+            return ("Informe seu email");
+        }
+        if (error.code == "auth/internal-error"){
+            return ("Informe sua senha");
+        }
         return error.message;
     }
 }
@@ -54,13 +60,7 @@ function registrar() {
 
 
 
-function toggleButtonsDisable() {
-    const emailValid = isEmailValid();
-    form.recuperarsenha().disabled = !emailValid;
 
-    const passwordValid = isPasswordValid();
-    form.buttonlog().disabled = !emailValid || !passwordValid;
-}
 
 function toggleEmailErrors() {
     const email = form.email().value;
